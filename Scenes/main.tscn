@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://blowxtmp7wy64"]
+
+[ext_resource type="PackedScene" uid="uid://pqecaqihna37" path="res://Scenes/main_menu.tscn" id="1_bnsh6"]
+[ext_resource type="Script" path="res://Scenes/main_controller.gd" id="1_y6lpd"]
+
+[node name="Main" type="Node2D" groups=["MainController"]]
+script = ExtResource("1_y6lpd")
+
+[node name="MainMenu" parent="." instance=ExtResource("1_bnsh6")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 579.0
+offset_top = 278.0
+offset_right = 579.0
+offset_bottom = 278.0
+grow_horizontal = 1
+grow_vertical = 1
