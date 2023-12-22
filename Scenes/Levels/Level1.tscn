@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgmtcfqsg3s0g"]
+[gd_scene load_steps=4 format=3 uid="uid://dgmtcfqsg3s0g"]
 
-[ext_resource type="Texture2D" uid="uid://cemn1s2uh7jjh" path="res://Assets/Cars/car_blue_small_5.png" id="1_dclh1"]
+[ext_resource type="TileSet" uid="uid://cxc6rv4ta7v5g" path="res://Resources/track_tileset.tres" id="1_tp26i"]
+[ext_resource type="Texture2D" uid="uid://ckkk4whkn84fd" path="res://Assets/Motorcycles/motorcycle_black.png" id="2_04w0m"]
 [ext_resource type="PackedScene" uid="uid://7us645813mjn" path="res://Scenes/Chars/player.tscn" id="2_f8s0s"]
 
 [node name="Level1" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(530, 280)
-texture = ExtResource("1_dclh1")
+[node name="Track" type="Node2D" parent="."]
+position = Vector2(-1, 0)
+
+[node name="TileMap" type="TileMap" parent="Track"]
+tile_set = ExtResource("1_tp26i")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 786432, 2, 65536, 786432, 2, -65536, 786432, 2, -131072, 786432, 0, 131071, 786432, 5, 131070, 786432, 4, 65534, 786432, 2, -2, 786432, 4, -65538, 786432, 5, -65537, 786432, 4, -1, 786432, 2, 65535, 786432, 2, 65537, 786432, 1, 1, 786432, 0, -65535, 786432, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_f8s0s")]
+position = Vector2(577, 324)
+
+[node name="MotorcycleBlack" type="Sprite2D" parent="."]
+position = Vector2(394, 205)
+texture = ExtResource("2_04w0m")
