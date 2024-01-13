@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Chars/player.gd" id="1_3rmpo"]
 [ext_resource type="Texture2D" uid="uid://cemn1s2uh7jjh" path="res://Assets/Cars/car_blue_small_5.png" id="1_stqci"]
-[ext_resource type="Resource" uid="uid://d1u0qka00vmsy" path="res://Scenes/Cars/BasicVehicle.tres" id="2_fq2k0"]
+[ext_resource type="Resource" uid="uid://d1u0qka00vmsy" path="res://Scenes/Cars/BlueSedan.tres" id="2_ej223"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_apkaa"]
 radius = 18.0
@@ -10,7 +10,7 @@ height = 64.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_3rmpo")
-vehicle = ExtResource("2_fq2k0")
+vehicle = ExtResource("2_ej223")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 rotation = 1.5708

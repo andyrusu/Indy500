@@ -1,7 +1,9 @@
 extends Resource
 class_name BasicVehicle
 
+@export_group("Visual Properties")
 @export var texture : Texture2D
+@export_group("Driving Properties")
 @export var wheel_base : int = 70
 @export var steering_angle : int = 15
 @export var engine_power : int = 800
@@ -36,7 +38,7 @@ func set_inputs(accelarate : bool, decelarate : bool, steer_left  : bool, steer_
 	input_steer_left = steer_left
 	input_steer_right = steer_right
 
-func run(delta):
+func run(delta : float):
 	acceleration = Vector2.ZERO
 	steer_direction = calculate_steer_direction(input_steer_left, input_steer_right)
 	
@@ -45,23 +47,23 @@ func run(delta):
 	elif input_break:
 		acceleration = transform_x * breaking
 	
-	apply_drag_and_friction()
+	acceleration += apply_drag_and_friction()
 	var rotation = calculate_steering(delta)
 	
 	velocity += acceleration * delta
 	
 	return {"rotation": rotation, "velocity": velocity}
 
-func apply_drag_and_friction():
+func apply_drag_and_friction() -> Vector2:
 	if velocity.length() < 5:
 		velocity = Vector2.ZERO
 	
 	var friction_force : Vector2 = velocity * friction
 	var drag_force : Vector2 = velocity * velocity.length() * drag
 	
-	acceleration += drag_force + friction_force
+	return drag_force + friction_force
 
-func calculate_steer_direction(steer_left, steer_right):
+func calculate_steer_direction(steer_left : bool, steer_right : bool) -> float:
 	var turn : int = 0
 	
 	if steer_right:
@@ -71,7 +73,7 @@ func calculate_steer_direction(steer_left, steer_right):
 	
 	return turn * deg_to_rad(steering_angle)
 
-func calculate_steering(delta):
+func calculate_steering(delta : float) -> float:
 	var rear_wheele : Vector2 = position - transform_x * wheel_base / 2.0
 	var front_wheele : Vector2 = position + transform_x * wheel_base / 2.0
 	

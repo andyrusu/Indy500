@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="BasicVehicle" load_steps=3 format=3 uid="uid://byubbmplfb7q2"]
+
+[ext_resource type="Script" path="res://Scenes/Cars/BasicVehicle.gd" id="1_d10bo"]
+[ext_resource type="Texture2D" uid="uid://bjqcu4fnsij0l" path="res://Assets/Cars/car_blue_small_4.png" id="2_kkohw"]
+
+[resource]
+script = ExtResource("1_d10bo")
+texture = ExtResource("2_kkohw")
+wheel_base = 70
+steering_angle = 15
+engine_power = 650
+friction = -0.9
+drag = -0.001
+breaking = -550
+max_reverse_speed = 250
+slip_speed = 400
+traction_fast = 0.1
+traction_slow = 0.7

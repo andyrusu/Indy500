@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name CarController
+class_name Player
 
 @export var vehicle : BasicVehicle
 
